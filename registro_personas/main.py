@@ -17,9 +17,11 @@ def inicializar_csv():
 
 def obtener_datos():
     pass
+
 def obtener_siquiente_id():
     pass
 
+#------------- Funciones CRUD ---------------------
 def crear_registros():
     print("Se ha ejecutado la función 'Crear Nuevo Registro'")
 
