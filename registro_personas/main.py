@@ -25,7 +25,7 @@ def calcular_edad(fecha_nacimiento_str):
 
     #Ajustar el mes y el día por si todavía no ha cumplido años
     if(hoy.month, hoy.day) < (fecha_nacimiento.month, fecha_nacimiento_str.day):
-        edad -= 1
+        edad -= 1 
     
     return edad 
 
