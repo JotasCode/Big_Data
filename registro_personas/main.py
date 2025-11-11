@@ -37,7 +37,7 @@ def eleminar_registros():
 def menu_principal():
     #Inciando la función que crea el archivo csv, donde se guardarán los datos.
     inicializar_csv()
-
+    
     #Muestra en pantalla un mensaje de bienvenida al programa.
     print("Bienvenido/a al programa de registro de personas.")
     while True:
@@ -59,7 +59,7 @@ def menu_principal():
             eleminar_registros()
         elif (opcion == "5"):
             print("Muchas gracias por utilizar nuestros servicios.")
-            print("JotasCode @2025 (all rights deserve)")
+            print("JotasCode @2025 (all rights reserved).")
         else:
             print("Opcición no valida, favor de registrar una de las opciones indicadas.")
         break
