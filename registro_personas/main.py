@@ -1,7 +1,7 @@
 import csv
 import os
 from datetime import date, datetime
-#from tabulate import tabulate
+from tabulate import tabulate
 
 ARCHIVO_CSV = "registro_personas.csv"
 CAMPOS = [
@@ -31,8 +31,8 @@ def calcular_edad(fecha_nacimiento_str):
 
 def inicializar_csv():
     """Crear el archivo CSV con los encabezados si no existen"""
-    if not os.path.exists(ARCHIVO_CSV)
-        with open(ARCHIVO_CSV, "w", newline="", enconding="utf-8") as archivo: 
+    if not os.path.exists(ARCHIVO_CSV):
+        with open(ARCHIVO_CSV, "w", newline="", encoding="utf-8") as archivo: 
             writer = csv.DictWriter(archivo, fieldnames=CAMPOS)
             writer.writeheader()
             print(f"Archivo '{ARCHIVO_CSV}' creado con éxito.")
@@ -100,7 +100,7 @@ def menu_principal():
             eleminar_registros()
         elif (opcion == "5"):
             print("Muchas gracias por utilizar nuestros servicios.")
-            print("JotasCode @2025 (all rights reserved).")
+            print("JotasCode © 2025 (all rights reserved).")
         else:
             print("Opcición no valida, favor de registrar una de las opciones indicadas.")
         break
