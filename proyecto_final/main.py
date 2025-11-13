@@ -8,7 +8,7 @@ COLUMNAS = [
     "id", "nombre_producto", "compañía_producto", "tipo_producto", "peso_producto", "fecha_ingreso", "fecha_exp", "tiempo_exp"
 ]
 
-def calcular_exp(fecha_exp_str):
+def calcular_dias_restantes(fecha_exp_str):
     try:
         fecha_exp = datetime.strptime(fecha_exp_str, "%Y-%m-%d").date()
     except ValueError:
@@ -16,9 +16,9 @@ def calcular_exp(fecha_exp_str):
 
     hoy = date.today()
 
-    tiempo_exp = fecha_exp - hoy 
+    dias_restantes = (fecha_exp - hoy).days
 
-    return tiempo_exp
+    return dias_restantes
 
 def iniciar_csv():
     if not os.path.exists(ARCHIVO_CSV):
@@ -70,16 +70,21 @@ def crear_productos():
     registro["nombre_producto"] = input("Escriba el nombre del producto: ")
     registro["compañía_producto"] = input("Escriba el nombre de la compañía del producto: ")
     registro["tipo_producto"] = input("Escriba el tipo del producto: ")
-    registro["peso_producto"] = input(int("Escriba el peso del producto (en gramos): "))
+    registro["peso_producto"] = input("Escriba el peso del producto (en gramos): ")
     registro["fecha_ingreso"] = input("Escriba la fecha en la que se ingresó el producto (YYYY-MM-DD): ")
     
     while True:
         fecha_exp_str = input("Fecha de esxpiración del producto (YYYY-MM-DD): ")
-        tiempo_exp = calcular_exp(fecha_exp_str)
-        if tiempo_exp is not None:
+        dias_restantes = calcular_dias_restantes(fecha_exp_str)
+        if dias_restantes is not None:
             registro["fecha_exp"] = fecha_exp_str
-            registro["tiempo_exp"] = str(tiempo_exp)
-            print(f"Tiempo restante del producto: {tiempo_exp}.")
+            registro["tiempo_exp"] = str(dias_restantes)
+            
+            if dias_restantes >= 0:
+                print(f"Tiempo restante del producto: {dias_restantes} días.")
+            else:
+                print(f"¡ADVERTENCIA! Producto expirado hace {-dias_restantes} días.")
+            
             break
         else:
             print("Formato de fecha incorrecto. Use el formato correcto (YYYY-MM-DD).")
@@ -126,7 +131,7 @@ def actualizar_productos():
         registro["nombre_producto"] = solicitar_columna("Nuevo nombre_producto", "nombre_producto")
         registro["compañía_producto"] = solicitar_columna("Nueva compañía_producto", "compañía_producto")
         registro["tipo_producto"] = solicitar_columna("Nuevo tipo_producto", "tipo_producto")
-        registro["peso_producto"] = solicitar_columna(int("Nuevo peso_producto", "peso_producto"))
+        registro["peso_producto"] = solicitar_columna("Nuevo peso del producto (en gramos)", "peso_producto")
         registro["fecha_ingreso"] = solicitar_columna("Nueva fecha_ingreso", "fecha_ingreso")
 
         fecha_exp_actual = registro.get("fecha_exp", "")
