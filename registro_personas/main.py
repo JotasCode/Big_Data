@@ -145,7 +145,7 @@ def actualizar_registros():
 
     if indice_encontrado != -1:
         registro = datos[indice_encontrado]
-        print(f"Registro encontrado (ID: {id_a_actualizar}). Deje el campo vacío para mantener el valor actual.")
+        print(f"Registro encontrado (ID: {id_a_actualizar}). (Deje el campo vacío para mantener el valor actual).")
 
         # Función auxiliar para solicitar y actualizar un campo
         def solicitar_campo(prompt, key):
