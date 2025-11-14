@@ -1,1 +1,2 @@
-id,nombre_producto,compañía_producto,tipo_producto,peso_producto,fecha_ingreso,fecha_exp,tiempo_exp
+id,nombre_producto,compañía_producto,tipo_producto,peso_producto(gramos),fecha_ingreso,fecha_exp,tiempo_exp(días)
+1,Pan Binbo,Binbo,Pan,400,2025-11-14,2026-04-26,163

@@ -5,7 +5,7 @@ from tabulate import tabulate
 
 ARCHIVO_CSV = "inventario.csv"
 COLUMNAS = [
-    "id", "nombre_producto", "compañía_producto", "tipo_producto", "peso_producto", "fecha_ingreso", "fecha_exp", "tiempo_exp"
+    "id", "nombre_producto", "compañía_producto", "tipo_producto", "peso_producto(gramos)", "fecha_ingreso", "fecha_exp", "tiempo_exp(días)"
 ]
 
 def calcular_dias_restantes(fecha_exp_str):
@@ -70,15 +70,16 @@ def crear_productos():
     registro["nombre_producto"] = input("Escriba el nombre del producto: ")
     registro["compañía_producto"] = input("Escriba el nombre de la compañía del producto: ")
     registro["tipo_producto"] = input("Escriba el tipo del producto: ")
-    registro["peso_producto"] = input("Escriba el peso del producto (en gramos): ")
+    registro["peso_producto(gramos)"] = input("Escriba el peso del producto (en gramos): ")
     registro["fecha_ingreso"] = input("Escriba la fecha en la que se ingresó el producto (YYYY-MM-DD): ")
     
     while True:
         fecha_exp_str = input("Fecha de esxpiración del producto (YYYY-MM-DD): ")
         dias_restantes = calcular_dias_restantes(fecha_exp_str)
+
         if dias_restantes is not None:
             registro["fecha_exp"] = fecha_exp_str
-            registro["tiempo_exp"] = str(dias_restantes)
+            registro["tiempo_exp(días)"] = str(dias_restantes)
             
             if dias_restantes >= 0:
                 print(f"Tiempo restante del producto: {dias_restantes} días.")
@@ -122,31 +123,36 @@ def actualizar_productos():
             
     if indice_encontrado != -1:
         registro = datos[indice_encontrado]
+        print("-" * 50)
         print(f"Producto encontrado (ID: {id_a_actualizar}). (Deje la columna vacía para mantener el valor actual).")
+        print("-" * 50)
 
         def solicitar_columna(prompt, key):
             nuevo_valor = input(f"{prompt} (Actual: {registro.get(key, 'N/A')}): ").strip()
             return nuevo_valor if nuevo_valor else registro.get(key, "")
 
-        registro["nombre_producto"] = solicitar_columna("Nuevo nombre_producto", "nombre_producto")
-        registro["compañía_producto"] = solicitar_columna("Nueva compañía_producto", "compañía_producto")
-        registro["tipo_producto"] = solicitar_columna("Nuevo tipo_producto", "tipo_producto")
-        registro["peso_producto"] = solicitar_columna("Nuevo peso del producto (en gramos)", "peso_producto")
-        registro["fecha_ingreso"] = solicitar_columna("Nueva fecha_ingreso", "fecha_ingreso")
+        registro["nombre_producto"] = solicitar_columna("Nuevo nombre de producto", "nombre_producto")
+        registro["compañía_producto"] = solicitar_columna("Nueva compañía de producto", "compañía_producto")
+        registro["tipo_producto"] = solicitar_columna("Nuevo tipo de producto", "tipo_producto")
+        registro["peso_producto(gramos)"] = solicitar_columna("Nuevo peso del producto (en gramos)", "peso_producto(gramos)")
+        registro["fecha_ingreso"] = solicitar_columna("Nueva fecha de ingreso", "fecha_ingreso")
 
-        fecha_exp_actual = registro.get("fecha_exp", "")
+        fecha_exp_actual = registro.get("fecha_exp(días)", "")
         while True:
             nueva_fecha_exp_str = input(f"Nueva fecha de expiración (YYYY-MM-DD) (Actual: {fecha_exp_actual}): ").strip()
             
             if not nueva_fecha_exp_str:
-                registro["fecha_exp"] = fecha_exp_actual
+                dias_restantes = calcular_dias_restantes(fecha_exp_actual)
+                registro["tiempo_exp(días)"] = str(dias_restantes)
+                print(f"Días restantes recalculados: {dias_restantes} días.")
                 break
             
-            tiempo_exp = tiempo_exp(nueva_fecha_exp_str)
-            if tiempo_exp is not None:
+            dias_restantes = calcular_dias_restantes(nueva_fecha_exp_str)
+
+            if dias_restantes is not None:
                 registro["fecha_exp"] = nueva_fecha_exp_str
-                registro["tiempo_exp"] = str(tiempo_exp)
-                print(f"Fecha de expiración actualizada: {tiempo_exp}.")
+                registro["tiempo_exp(días)"] = str(dias_restantes)
+                print(f"Días restantes actuales: {dias_restantes}.")
                 break
             else:
                 print("Formato de fecha incorrecto. Use el formato correcto (YYYY-MM-DD).")
@@ -186,7 +192,7 @@ def menu_principal():
     iniciar_csv()
     
     print("-" * 50)
-    print("Bienvenido/a al programa de registro de productos.")
+    print("Bienvenido(a) al programa de registro de productos.")
     while True:
         print("-" * 50)
         print("\n¿Qué desea hacer?")
