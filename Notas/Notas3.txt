@@ -1,0 +1,35 @@
+# Investigar los siguientes conceptos usando la IA:
+
+Importante:
+
+Si usted al momento de investigar este cuestionario, usa una IA que no sea ["chatGPT", "Gemini", "Grok", "Claude"] usted es un/a pariguayo/a.
+
+Cuestionario_#2 = {
+
+"1": "Modelo Relacional: Definición, Conceptos y Componentes Clave (Tablas, Columnas, Filas)",
+
+"2": "Integridad de Datos: Claves Primarias, Claves Foráneas y Restricciones (UNIQUE, NOT NULL)",
+
+"3": "Normalización de Bases de Datos (1NF, 2NF, 3NF, BCNF) e Importancia",
+
+"4": "Lenguaje de Consulta Estructurado (SQL): Definición, Tipos (DDL, DML, DCL, TCL)",
+
+"5": "DDL: Sentencias CREATE TABLE, ALTER TABLE, DROP TABLE y Uso de Tipos de Datos",
+
+"6": "DML Básico: Sentencias INSERT, UPDATE Y DELETE",
+
+"7": "Consultas Básicas (SELECT): Cláusulas FROM, WHERE, ORDER BY y Uso de Alias",
+
+"8": "Consultas Avanzadas: Operadores Lógicos (AND, OR, NOT), Agregación (GROUP BY, HAVING) y Funciones de Ventana",
+
+"9": "Combinación de Tablas (JOINS): INNER JOIN, LEFT/RIGHT JOIN, FULL JOIN Y CROSS JOIN",
+
+"10": "Transacciones: Propiedades ACID (Atomicidad, Consistencia, Aislamiento, Durabilidad) y Sentencias COMMIT/ROLLBACK",
+
+}
+
+"11": "Conceptos de Vistas, Índices, Procedimientos Almacenados (Stored Procedures) y Triggers",
+
+"12": "Control de Acceso: Sentencias GRANT y REVOKE (DCL)"
+
+print (Cuestionario_#2)
