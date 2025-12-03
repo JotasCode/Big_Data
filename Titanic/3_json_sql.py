@@ -18,7 +18,7 @@ def generate_insert_statements(df, table_name):
     return inserts
 
 try:
-    df = pd.read_json('i_titanic.json', orient='records')
+    df = pd.read_json('1_titanic.json', orient='records')
 
     sql_inserts = generate_insert_statements(df, 'mi_tabla_json')
 
@@ -26,10 +26,10 @@ try:
         f.write(f"CREATE TABLE mi_tabla_json ({', '.join([f'{col} TEXT' for col in df.columns])});\n")
         f.write('\n'.join(sql_inserts))
 
-    print("Conversión de JSON a instrucciones SQL completada.")
+    print("✅ Conversión de JSON a instrucciones SQL completada.")
 
 except FileNotFoundError:
-    print("❌ Error: El archivo 'i_titanic.json' no fue encontrado. Asegúrate de que esté en la misma carpeta.")
+    print("❌ Error: El archivo '1_titanic.json' no fue encontrado. Asegúrate de que esté en la misma carpeta.")
     
 except Exception as e:
-    print(f"❌ Ocurrió un error al convertir a SQL: {e}")
+    print(f"❌ Ocurrió un error al intentar crear el archivo 3_titanic.sql: {e}")
