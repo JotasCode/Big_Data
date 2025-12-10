@@ -30,6 +30,7 @@ class futbolista:
         goles =
         asistencias =
         trofeos =
+        premios_individuales =
         tipo_celebración =
         patrocinadores =
         salario =
