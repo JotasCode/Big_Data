@@ -1,0 +1,51 @@
+class futbolista:
+    Atributos:
+        nombre =
+        apellido =
+        sobrenombre =
+        sexo =
+        edad =
+        altura =
+        peso =
+        nacionalidad =
+        posición =
+        equipo =
+        número_equipo =
+        seleción =
+        número_seleción =
+        velocidad =
+        aceleración =
+        estamina =
+        fuerza =
+        fuerza_disparo =
+        precisión_disparo =
+        agilidad =
+        agilidad_balón = 
+        recepción_balón = 
+        control_balón =
+        control_balón_cabeza = 
+        altura_salto =
+        debút_profesional =
+        partidos_jugados =
+        goles =
+        asistencias =
+        trofeos =
+        premios_individuales =
+        tipo_celebración =
+        patrocinadores =
+        salario =
+
+    Métodos:
+        correr()
+        disparar()
+        defender()
+        driblear() 
+        saltar() 
+        cabecear()
+        pasar()
+
+
+
+
+
+
