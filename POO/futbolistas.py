@@ -95,7 +95,7 @@ class Futbolista:
         print(f'{self.apodo} está dribleando con el balón.')
 
     def saltar(self):
-        print(f'{self.apodo} está saltando a una altura de {self.altura_salto_cm}cm, a una velocidad de {self.velocidad_kmh}km/h, con una aceleración de {self.aceleración_ms2}m/s^2.')
+        print(f'{self.apodo} está saltando a una altura de {self.altura_salto_cm}cm, con una velocidad de {self.velocidad_kmh}km/h y una aceleración de {self.aceleración_ms2}m/s^2.')
 
     def cabecear(self):
         print(f'{self.apodo} está cabeceando.')
@@ -158,27 +158,15 @@ messi = Futbolista(
     goles = 896, 
     asistencias = 409, 
     trofeos = 48, 
-    premios_individuales = 60, 
+    premios_individuales = 50, 
     tipo_celebración = 'Señalar al Cielo', 
-    patrocinadores = ['Adidas', 'Pepsi', 'Gatorade'], 
+    patrocinadores = ['Adidas', 'Lay s', 'Gatorade'], 
     salario_anual = '50,000,000 dolares'
     )
 
-print('-' * 80)
-messi.correr()
-messi.disparar()
-messi.deslizarse()
-messi.defender()
-messi.driblear()
-messi.saltar()
-messi.cabecear()
-messi.pasar()
-messi.celebrar()
-print('-' * 80)
-
 cristiano = Futbolista(
     nombre = 'Cristiano', 
-    apellido = 'Ronaldo', 
+    apellido = 'Ronaldo dos Santos Aveiro', 
     apodo = 'El Bicho', 
     sexo = 'hombre', 
     fecha_nacimiento = '5/2/1985', 
@@ -207,21 +195,47 @@ cristiano = Futbolista(
     partidos_jugados = 1137, 
     goles = 896, 
     asistencias = 409, 
-    trofeos = 48, 
-    premios_individuales = 60, 
+    trofeos = 36, 
+    premios_individuales = 31, 
     tipo_celebración = 'SIIIIUUUU', 
-    patrocinadores = ['Adidas', 'Pepsi', 'Gatorade'], 
-    salario_anual = '50,000,000 dolares'
+    patrocinadores = ['Nike', 'Herbalife', 'Binance', 'Tag Heuer', 'Clear Shampoo'], 
+    salario_anual = '215,000,000 dolares'
     )
 
-print('-' * 80)
-cristiano.correr()
-cristiano.disparar()
-cristiano.deslizarse()
-cristiano.defender()
-cristiano.driblear()
-cristiano.saltar()
-cristiano.cabecear()
-cristiano.pasar()
-cristiano.celebrar()
-print('-' * 80)
+neymar = Futbolista(
+    nombre = 'Neymar', 
+    apellido = 'da Silva Júnior', 
+    apodo = 'Ney', 
+    sexo = 'hombre', 
+    fecha_nacimiento = '5/2/1992', 
+    edad = '33 años', 
+    estado = 'activo', 
+    altura = '1.75m', 
+    peso = '65kg', 
+    nacionalidad = 'brasileña', 
+    posición = 'mediocentro ofensivo', 
+    equipo = 'Santos', 
+    número_equipo = '10', 
+    seleción = 'brasileña', 
+    número_seleción = '10', 
+    velocidad_kmh = 26, 
+    aceleración_ms2 = 4.2, 
+    estamina = 'promedio', 
+    fuerza = 'mala', 
+    velocidad_disparo_kmh = 105, 
+    precisión_disparo = 90, 
+    agilidad = 'buena',  
+    recepción_balón = 'muy buena', 
+    control_balón = 'muy bueno', 
+    control_balón_cabeza = 'muy bueno', 
+    altura_salto_cm = 30, 
+    debút_profesional = '20/8/2010',
+    partidos_jugados = 719, 
+    goles = 439, 
+    asistencias = 286, 
+    trofeos = 48, 
+    premios_individuales = 10, 
+    tipo_celebración = 'Baile brasileño', 
+    patrocinadores = 'Puma', 
+    salario_anual = '40,000,000 dolares'
+    )
