@@ -1,0 +1,1 @@
+Si quiero que otro programador sepa que el valor de una variable es constante puedo colocar todo nombre de la variable en mayúscula.
